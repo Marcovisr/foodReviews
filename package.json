@@ -1,0 +1,32 @@
+{
+  "name": "food-review",
+  "version": "1.0.0",
+  "description": "Servidor Backend para app de avaliação de restaurante",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=producao node server",
+    "dev": "cross-env NODE_ENV=desenvolvimento nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcovisr/foodReview.git"
+  },
+  "author": "Marcovis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcovisr/foodReview/issues"
+  },
+  "homepage": "https://github.com/Marcovisr/foodReview#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  }
+}
