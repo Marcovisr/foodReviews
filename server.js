@@ -3,8 +3,8 @@
 
 import  express  from "express";
 import dotenv from 'dotenv';
-import connect from './config/db.js';
-
+import router from './routes/routes.js';
+import bodyParser from 'body-parser'
 
 // load config
 dotenv.config({ path: './config/config.env'});
@@ -21,10 +21,8 @@ server.listen(
     
     );
 
-// Connect to the database
-connect();
+// ROUTES == rota
+server.use(bodyParser.urlencoded({ extended: true}));
+server.use(bodyParser.json());
 
-server.get('/', (req, res) => res.send("Hello minha tropa!"));
-server.get('/users', (rec, res) => res.send("Página de usuários"));
-
-
+server.use(router);

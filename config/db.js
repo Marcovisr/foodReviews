@@ -8,7 +8,7 @@ import Sequelize from 'sequelize';
 // load config
 dotenv.config({ path: './config/config.env'});
 
-export const connection = new Sequelize(
+const connection = new Sequelize(
 
     // 'process.env.' chama sua variável de ambiente
     process.env.MYSQL_DATABASE,
@@ -24,21 +24,5 @@ export const connection = new Sequelize(
 
 );
 
-export default async function connect() 
-{
-    
-     try 
-     {
 
-        await connection.authenticate();
-        console.log('Connection has been established successfully.');
-
-     } catch(error)
-     {
-
-        console.log("Unable to connect to the database: ",error);
-
-     }
-
-};
-
+export default connection;

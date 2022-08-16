@@ -3,12 +3,12 @@ import Sequelize from "sequelize";
 
 import connection from "../config/db.js";
 
-const Review = connection.define(
+const User = connection.define(
 
-    'review',
+    'user',
     {
 
-        // oque o review vai ter de informação
+        // oque o user vai ter de informação
         id: {
 
             type: Sequelize.INTEGER,
@@ -17,39 +17,33 @@ const Review = connection.define(
             primaryKey: true
 
         },
-        idUser:{
-
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {
-
-                model: 'users',
-                key: 'id'
-
-            }
-
-        },
-        idRestaurant: {
-
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {
-
-                model: 'restaurants',
-                key: 'id'
-
-            }
-
-        },
-        comment: {
+        name:{
 
             type: Sequelize.STRING,
             allowNull: false
 
         },
-        stars: {
+        email: {
 
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+
+                isEmail: true
+
+            },
+            unique: true
+
+        },
+        password: {
+
+            type: Sequelize.STRING,
+            allowNull: false
+
+        },
+        admin: {
+
+            type: Sequelize.BOOLEAN,
             allowNull: false
 
         }
@@ -58,7 +52,7 @@ const Review = connection.define(
 
 );
 
-export default Review;
+export default User;
 
 
 
