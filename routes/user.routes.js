@@ -7,7 +7,14 @@ user.get('/', (req, res) => res.send('Rota de Usuarios'));
 
 user.post('/register', (req, res) => {
 
-    console.log(req.body);
+    const{ name, email, password, admin } = req.body;
+    const newUser = new User ({ name, email, password, admin });
+    const savedUser = newUser.save();
+    if(savedUser) {
+
+        res.json({message: 'Obrigado pelo cadastro!'})
+
+    }
     
 });
 
