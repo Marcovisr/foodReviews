@@ -1,7 +1,7 @@
 // 'sequelize' é uma biblioteca que sincroniza os modelos com o banco de dados e transforma os códigos em códigos sql
 import Sequelize from "sequelize";
-
 import connection from "../config/db.js";
+import bcrypt from 'bcrypt';
 
 const User = connection.define(
 
@@ -48,6 +48,23 @@ const User = connection.define(
 
         }
 
+    },
+    {
+        hooks: {
+        //criptografia do pasword
+            beforeCreate: async(user) => {
+                if(user.password){
+                    const salt = await bcrypt.genSaltSync(10,'a');
+                    user.password = bcrypt.hashSync(user.password, salt);
+                }
+            },
+            beforeUpdate: async(user) => {
+                if(user.password){
+                    const salt = await bcrypt.genSaltSync(10, 'a');
+                    user.password = bcrypt.hashSync(user.password, salt);
+                }
+            },
+        }
     }
 
 );
