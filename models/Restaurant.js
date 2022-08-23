@@ -7,43 +7,30 @@ const Restaurant = connection.define(
 
     'restaurant',
     {
-
         // oque o restaurant vai ter de informação
         id: {
-
             type: Sequelize.INTEGER,
             autoIncrement: true,
             allwNull: false,
             primaryKey: true
-
         },
         name:{
-
             type: Sequelize.STRING,
             allowNull: false
-
         },
         type: {
-
             type: Sequelize.STRING,
             allowNull: false
-
         },
         description: {
-
             type: Sequelize.STRING,
             allowNull: false
-
         },
         address: {
-
             type: Sequelize.STRING,
             allowNull: false
-
         }
-
     }
-
 );
 
 export default Restaurant;

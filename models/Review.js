@@ -7,55 +7,38 @@ const Review = connection.define(
 
     'review',
     {
-
         // oque o review vai ter de informação
         id: {
-
             type: Sequelize.INTEGER,
             autoIncrement: true,
             allwNull: false,
             primaryKey: true
-
         },
         idUser:{
-
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
-
                 model: 'users',
                 key: 'id'
-
             }
-
         },
         idRestaurant: {
-
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
-
                 model: 'restaurants',
                 key: 'id'
-
             }
-
         },
         comment: {
-
             type: Sequelize.STRING,
             allowNull: false
-
         },
         stars: {
-
             type: Sequelize.INTEGER,
             allowNull: false
-
         }
-
     }
-
 );
 
 export default Review;

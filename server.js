@@ -15,11 +15,9 @@ const PORT = process.env.PORT || 5000;
 const server = express();
 
 server.listen(
-    
     PORT,
-    console.log(`Servidor rodando no ambiente de ${process.env.NODE_ENV} na porta ${PORT}...`)
-    
-    );
+    console.log(`Servidor rodando no ambiente de ${process.env.NODE_ENV} na porta ${PORT}...`)   
+);
 
 // ROUTES == rota
 server.use(bodyParser.urlencoded({ extended: true}));
